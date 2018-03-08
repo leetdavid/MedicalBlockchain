@@ -31,6 +31,9 @@ app.use('/requests', requests);
 let dashboard = require('./routes/dashboard');
 app.use('/dashboard', dashboard);
 
+let phonesim = require('./routes/phonesim');
+app.use('/phonesim', phonesim);
+
 //connect to database using mongoose
 const mongoose = require('mongoose');
 const dbURL = 'mongodb://medical.documents.azure.com:10255/?ssl=true&replicaSet=globaldb';
