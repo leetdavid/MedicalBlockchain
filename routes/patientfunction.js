@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
     'status': 'REQUESTED'
   }, (err, requests) => {
     console.log('dug out: ' + requests);
-    res.render('patientfunction', { title: 'Patient Function' , requests: requests});
+    res.render('patientfunction', { title: 'Healthchain - Patient Dashboard' , requests: requests});
   });
 });
 

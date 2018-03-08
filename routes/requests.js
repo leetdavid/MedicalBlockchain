@@ -7,7 +7,7 @@ let Request = require('../models/requestreal');
 /* GET request page. */
 router.get('/', (req, res, next) => {
   Request.find({}, (err, requests) => {
-    res.render('requests', { title: 'Medichain - Request History', requests: requests});
+    res.render('requests', { title: 'Healthchain - Request History', requests: requests});
   });
 });
 
@@ -28,7 +28,7 @@ router.post('/', (req, res, next) => {
 });
 
 router.get('/new', (req, res, next) => {
-  res.render('requests_add', {title: 'Medichain - Add Request'});
+  res.render('requests_add', {title: 'Healthchain - Add Request'});
 });
 
 /* POST request page. */
