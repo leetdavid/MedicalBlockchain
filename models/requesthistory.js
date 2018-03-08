@@ -2,15 +2,12 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 let RequestHistorySchema = new Schema({
+  //Name of source (e.g. Hong Kong General Hospital)
   sourceName: {
     type: String,
     index: true
   },
   sourceURL: {
-    type: String,
-    index: true
-  },
-  uuid: {
     type: String,
     index: true
   },
@@ -20,7 +17,11 @@ let RequestHistorySchema = new Schema({
     index: true
   },
   status: {
-    type: String,
+    //'REQUESTED'
+    //'APPROVED'
+    //'COMPLETE'
+    //'DENIED'
+    type: String, 
     index: true
   },
   transactiondate: {

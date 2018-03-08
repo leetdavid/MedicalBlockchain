@@ -1,9 +1,18 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('requests', { title: 'Express' });
+let RequestHistory = require('../models/requesthistory');
+
+/* GET request page. */
+router.get('/', (req, res, next) => {
+  RequestHistory.find({}, (err, requesthistory) => {
+    res.render('requests', { title: 'Express', requests: requesthistory});
+  });
+});
+
+/* POST request page. */
+router.post('/', (req, res, next) => {
+  
 });
 
 module.exports = router;
