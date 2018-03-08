@@ -1,26 +1,45 @@
 extends ./template/layout
 block content
-  <div class="container">
-    <div class="row ">
-      
-      <div class="col-xs-6">
-        <p>  <h4>  Patient's Details </h4> </p>
-        <div > 
-            | <b>Name:</b>     Wong Tai Man <br/>
-            | <b>Age: </b>     46 <br/>
-            | <b>Address: </b> a67934794<br/> <br/>
-            <div align="center">
-          
-            <a href="" class="btn btn-outline-primary btn-sm " role="button" >Pending Transfer Requests!</a>
-            <a href="" class="btn btn-outline-primary btn-sm " role="button" >Transfer History!</a>
-            <a href="patient" class="btn btn-outline-primary btn-sm " role="button" >Medical History!</a>
-
-
-
-            </div>
-        </div>
-          
-      </div>
-  </div>
-  
-
+  br
+  br
+  .container
+    .row
+      .col-md-4
+        img(src="/img/default_avatar.png" height="200px")
+      .col-md-8
+        h4 Profile
+        p.
+          <b>Name:</b> Wong Tai Man
+        p.
+          <b>Age:</b> 46
+        p.
+          <b>Address:</b> 0x0B45548a180a80B1d47A07b924491e0d3026E915
+        a.btn.btn-primary(href="/patient") Medical Profile
+        br
+        br
+        br
+        br
+      .col-md-12
+        h4 Pending Requests
+        table.table
+          thead
+            tr
+              th(scope='col') Timestamp
+              th(scope='col') Requestor
+              th(scope='col') Duration (Days)
+              th(scope='col') Status
+              th(scope='col') Actions
+          tbody
+            each request in requests
+              tr
+                td= request.timestamp
+                td= request.requestor
+                td= request.duration
+                td= request.status
+                td
+                  form(method="POST" action="/patientfunction/approve")
+                    button.approve-doc.btn.btn-success(data-id=request.duration) 	&#10004;
+                  form(method="POST" action="/patientfunction/delete")
+                  button.remove-doc.btn.btn-danger(data-id=request.duration) &#10006;
+  script(src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
+  +js('patientfunc.js')
