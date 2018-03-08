@@ -22,6 +22,11 @@ let RequestSchema = new Schema({
     type: Date,
     index: true,
     default: Date.now
+  },
+  requestor: {
+    type: String,
+    index: true,
+    default: "Dr. Demo"
   }
 });
 
