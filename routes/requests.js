@@ -23,6 +23,8 @@ router.post('/', (req, res, next) => {
     console.log('new entry added:' + newEntry);
     res.redirect('/requests');
   });
+
+  //...
 });
 
 router.get('/new', (req, res, next) => {
