@@ -25,9 +25,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', patients);
-//app.use('/patients', patients); //added by Roger
+app.use('/', index);
 app.use('/users', users); 
+
+let patients = require('./routes/patients');
+app.use('/patients', patients); //added by Roger
 
 let requests = require('./routes/requests');
 app.use('/requests', requests);
