@@ -18,13 +18,18 @@ router.post('/approve', (req, res, next) => {
   let dur = req.body.durp || req.query.durp;
   console.log('APPROVE dur: ' + dur);
   Request.findOne({
-    duration: dur
+    _id: dur
   }, (err, result) => {
     if(err) {
       console.log(result);
       res.redirect('/patientfunction');
     }
     result.status = 'APPROVED';
+    result.save((err) => {
+      if(err){
+        console.log('PROBLEM UPDATING DATA');
+      }
+    })
     res.redirect('/patientfunction');
   });
 });
@@ -33,7 +38,7 @@ router.post('/delete', (req, res, next) => {
   let dur = req.body.durp || req.query.durp;
   console.log('DELETE dur: ' + dur);
   Request.remove({
-    duration: dur
+    _id: dur
   }, (err, result) => {
     res.redirect('/patientfunction');
   });
