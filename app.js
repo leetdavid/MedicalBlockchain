@@ -44,6 +44,9 @@ app.use('/phonesim', phonesim);
 let patientfunction = require('./routes/patientfunction');
 app.use('/patientfunction', patientfunction);
 
+let pendingrequests = require('./routes/pendingrequests');
+app.use('/pendingrequests', pendingrequests);
+
 //connect to database using mongoose
 const mongoose = require('mongoose');
 const dbURL = 'mongodb://medical.documents.azure.com:10255/?ssl=true&replicaSet=globaldb';
