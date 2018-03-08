@@ -37,9 +37,9 @@ block content
                 td= request.duration
                 td= request.status
                 td
-                  form(method="POST" action="/patientfunction/approve")
+                  form(method="POST" action="/patientfunction/approve?durp="+request.duration)
                     button.approve-doc.btn.btn-success(data-id=request.duration) 	&#10004;
-                  form(method="POST" action="/patientfunction/delete")
-                  button.remove-doc.btn.btn-danger(data-id=request.duration) &#10006;
+                  form(method="POST" action="/patientfunction/delete?durp="+request.duration)
+                    button.remove-doc.btn.btn-danger(data-id=request.duration) &#10006;
   script(src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
   +js('patientfunc.js')
