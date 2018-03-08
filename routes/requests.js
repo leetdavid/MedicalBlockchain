@@ -2,12 +2,29 @@ let express = require('express');
 let router = express.Router();
 
 let RequestHistory = require('../models/requesthistory');
+let Request = require('../models/requestreal');
 
 /* GET request page. */
 router.get('/', (req, res, next) => {
-  RequestHistory.find({}, (err, requesthistory) => {
-    res.render('requests', { title: 'Medichain - Request History', requests: requesthistory});
+  Request.find({}, (err, requests) => {
+    res.render('requests', { title: 'Medichain - Request History', requests: requests});
   });
+});
+
+/* POST (Add Request to database) */
+router.post('/', (req, res, next) => {
+  let newEntry = {
+    "address": req.body.address,
+    "duration": req.body.duration,
+    "status": 'REQUESTED'
+  };
+  Request.create(newEntry, (err, doc) => {
+    if(err) throw err;
+    console.log('new entry added:' + newEntry);
+    res.redirect('/requests');
+  });
+
+  //...
 });
 
 router.get('/new', (req, res, next) => {

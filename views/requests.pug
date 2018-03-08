@@ -4,27 +4,66 @@ block content
     br
     .container
       .row
-        .col
+        .col-md-8
           h3 Request History
-        .col
-          a.btn.btn-default.float-right(href='/requests/new' role="button") New Entry...
+        .col-md-2
+          a.btn.btn-primary.float-right(href='/requests/new' role="button") New Entry
+        .col-md-2
+          button.btn.btn-primary.input-group-btn(type="button" data-toggle="modal" data-target="#createRequest") Request
     br
     table.table
       thead
         tr
-          th(scope='col') Source
-          //request date
-          th(scope='col') Requested
+          th(scope='col') Address
+          th(scope='col') Timestamp
+          th(scope='col') Duration (Days)
           th(scope='col') Status
-          th(scope='col') Completed
-          th(scope='col') City
-          th(scope='col') Country
       tbody
         each request in requests
           tr
-            td: a(href=sourceURL)= request.sourceName
-            td= request.requestdate
+            td= request.address
+            td= request.timestamp
+            td= request.duration
             td= request.status
-            td= request.transactiondate
-            td= request.city
-            td= request.country
+    //
+      table.table
+        thead
+          tr
+            th(scope='col') Source
+            //request date
+            th(scope='col') Requested
+            th(scope='col') Status
+            th(scope='col') Completed
+            th(scope='col') City
+            th(scope='col') Country
+        tbody
+          each request in requests
+            tr
+              td: a(href=sourceURL)= request.sourceName
+              td= request.requestdate
+              td= request.status
+              td= request.transactiondate
+              td= request.city
+              td= request.country
+  script(src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
+  +js('requests_client.js')
+
+  .modal.fade#createRequest(tabindex="-1" role="dialog" aria-labelledby="createRequestLabel" aria-hidden='true')
+    .modal-dialog(role="document")
+      .modal-content
+        form(method="POST" action='/requests')
+          .modal-header
+            h5.modal-title#createRequestLabel New Request
+            button.close(type="button" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") &times;
+          .modal-body
+            .form-group
+              label.col-form-label(for="address") address
+              input.form-control#address(type="text" name="address" placeholder="Enter Address")
+            .form-group
+              label.col-form-label(for="duration") duration (days)
+              input.form-control#duration(type="text" name="duration" placeholder="Enter Duration in Days")
+          .modal-footer
+            button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+            button.btn.btn-primary(type="submit") Request
+              
