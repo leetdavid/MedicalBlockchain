@@ -29,9 +29,6 @@ app.use('/users', users);
 var login = require('./routes/login');    //added by Roger
 app.use('/login', login); //added by Roger
 
-let patients = require('./routes/patients');
-app.use('/patients', patients); //added by Roger
-
 let requests = require('./routes/requests');
 app.use('/requests', requests);
 
