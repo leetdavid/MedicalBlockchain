@@ -2,9 +2,14 @@ extends ./template/layout
 block content
   <div class="container">
     <div class="row ">
-      <div class="col-xs-6">
+      <div class="col-md-8">
+      <p><br/></p>
+        <img src="/img/default_avatar.png" height="200px"/>
+      </div>
+
+      <div class="col-md-4">
         <p>  <h4>  Patient Basic Information  </h4> </p>
-          <table class="table table-active" style="background:verylightgrey" style="align:justify">
+          <table align="right"class="table table-active" >
             <tbody>
               <tr>
                 <th scope="row">First Name</th>
@@ -42,27 +47,31 @@ block content
   <div class="container">
     <div class="row ">
       <div class="col-xs-6">
-        <p>  <h4>  History of Illness  </h4> </p>
+        <p>  <h4 >  <u>History of Illness </u>  </h4> </p>
+          <p> <h5>Medical History</h5> <p>
           <table class="table">
             <thead>
               <tr>
                 <div align="right"> <b>Date:</b> 23rd January, 2017</div>              
                 <div><b>Diagnosed By:</b> Peter Ho</div>
-                <div> <b>Hospital: </b>Queens Mary Hospital Ho</div>
+                <div> <b>Hospital: </b>Queens Mary Hospital </div>
               </tr>
             </thead>
             <tbody>
               <table class="table" style="align-self:center">
                 <thead class="thead-default">
                   <th> Symptoms</th>
-                  <th> Diagnostics </th>
-                  <th> Treatment</th>
+                  <th>Tests/Treatment</th>
+                  <th> Diagnostics</th>
+                  <th> Medication</th>
+
 
                 </thead>
                 <tbody>
                   <tr>
                     <td>Dizziness, Headache, Fever</td>
                     <td>Rapid Influenza Diagnostic Test</td>
+                     <td>Influenza </td>
                     <td>Oseltamivir-2mg</td>
                   </tr>
                   <tr>
@@ -72,6 +81,92 @@ block content
                 </tbody>
               </table>
                 
+            </tbody>
+          </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <div align="right"> <b>Date:</b> 15th May, 2016</div>              
+                <div><b>Diagnosed By:</b> Sarah Wang</div>
+                <div> <b>Hospital: </b>Central Hospital </div>
+              </tr>
+            </thead>
+            <tbody>
+              <table class="table" style="align-self:center">
+                <thead class="thead-default">
+                  <th> Symptoms</th>
+                  <th> Tests/Treatment  </th>
+                  <th> Diagnostics</th>
+                  <th> Medication</th>
+
+
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Vomitting, Stomach Ache</td>
+                    <td>Blood Test</td>
+                    <td>Food Poisoning</td>
+                    <td>Attapulgite</td>
+                  </tr>
+                  <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+                
+            </tbody>
+          </table>
+
+          <p> <h5>Social History</h5> <p>
+            <table class="table " style="background:verylightgrey" style="align:justify">
+             <tbody>
+              <tr>
+                <th scope="row">Alcohol use:</th>
+                <td>1 or 2 beers each weekend <br/> 1 glass of Quantity wine once a week with dinner. </td>
+              </tr>
+              <tr>
+                <th scope="row">Tobacco use:</th>
+                <td>None</td>
+              </tr>
+              <tr>
+                <th scope="row">Medications: </th>
+                <td>No prescription or illegal drug use. Occasional OTC ibuprofen (Advil) for headache (QOD). </td>
+              </tr>
+              
+             
+            </tbody>
+          </table>
+        
+          <p> <h5>Family History</h5> <p>
+            <table class="table " style="background:verylightgrey" style="align:justify">
+             <tbody>
+              <tr>
+                <th scope="row">Mother:</th>
+                <td>59, alive and well. </td>
+              </tr>
+              <tr>
+                <th scope="row">Father:</th>
+                <td>54, deceased, heart attack. </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p> <h5>Review of Systems</h5> <p>
+            <table class="table " style="background:verylightgrey" style="align:justify">
+             <tbody>
+              <tr>
+                <th scope="row">HEENT:</th>
+                <td>No complaints of headache change in vision, nose or ear problems, or sore throat.  </td>
+              </tr>
+              <tr>
+                <th scope="row">Gastrointestinal:</th>
+                <td>No complaints of dysphagia, nausea, vomiting, or change in stool pattern, consistency, or color. He complains of epigastric pain, burning in quality, approximately twice a month, which she notices primarily at night.  </td>
+              </tr>
+              <tr>
+                <th scope="row">Musculoskeletal:</th>
+                <td>She complains of lower back pain, aching in quality,approximately once every week after working in her garden. This pain is usually relieved with Tylenol. She complains of no other arthralgias, muscle aches, or pains. </td>
+              </tr>
             </tbody>
           </table>
       </div>
