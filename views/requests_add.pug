@@ -1,0 +1,32 @@
+extends ./template/layout
+block content
+  //Pop up to add a new search profile
+  .container
+    .row
+      .col-md-1
+      .col-md-10
+        form(method='POST' action='/requests/new')
+          .form-group
+            label(for="sourceName") source name
+            input.form-control#sourceName(type="text" placeholder="Enter Source Name" aria-describedby="sourceHelp" name='entry[sourceName]')
+            small.form-text.text-muted#sourceHelp This is the commonly identitifiable name of the requestor.
+          .form-group
+            label(for="status") status
+            input.form-control#status(type="text" placeholder="Enter Status" aria-describedby="statusHelp" name='entry[status]')
+            small.form-text.text-muted#statusHelp Use one of the following: REQUESTED APPROVED COMPLETE DENIED
+          .form-group
+            label(for="requestdate") request date
+            input.form-control#requestdate(type="date" placeholder="Enter Request Date" name='entry[requestdate]')
+          .form-group
+            label(for="transactiondate") transaction date
+            input.form-control#transactiondate(type="date" placeholder="Enter Transaction Date" name='entry[transactiondate]')
+          .row
+            .col
+              label(for="city") city
+              input.form-control#city(type="text" placeholder="Enter City" name='entry[city]')
+            .col
+              label(for="country") country
+              input.form-control#country(type="text" placeholder="Enter Country" name='entry[country]')
+          br
+          button.btn.btn-primary(type="submit") Submit
+      .col-md-1

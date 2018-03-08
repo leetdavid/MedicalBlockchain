@@ -21,7 +21,7 @@ app.set('view engine', 'pug');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -34,6 +34,9 @@ app.use('/requests', requests);
 
 let dashboard = require('./routes/dashboard');
 app.use('/dashboard', dashboard);
+
+let phonesim = require('./routes/phonesim');
+app.use('/phonesim', phonesim);
 
 //connect to database using mongoose
 const mongoose = require('mongoose');

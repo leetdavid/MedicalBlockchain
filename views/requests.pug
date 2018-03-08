@@ -1,7 +1,14 @@
 extends ./template/layout
 block content
-  h3 Requests content here
   .container
+    br
+    .container
+      .row
+        .col
+          h3 Request History
+        .col
+          a.btn.btn-default.float-right(href='/requests/new' role="button") New Entry...
+    br
     table.table
       thead
         tr
