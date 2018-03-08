@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+
 var app = express();
 
 // view engine setup
@@ -23,7 +24,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/users', users); 
+
+var login = require('./routes/login');    //added by Roger
+app.use('/login', login); //added by Roger
 
 let requests = require('./routes/requests');
 app.use('/requests', requests);
