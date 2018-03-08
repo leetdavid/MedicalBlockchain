@@ -8,8 +8,6 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
-var patients = require('./routes/patients');  //added by Roger
-var login = require('./routes/login');    //added by Roger
 
 var app = express();
 
@@ -27,6 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users); 
+
+var login = require('./routes/login');    //added by Roger
+app.use('/login', login); //added by Roger
 
 let patients = require('./routes/patients');
 app.use('/patients', patients); //added by Roger

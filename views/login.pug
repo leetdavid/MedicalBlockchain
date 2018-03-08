@@ -1,8 +1,31 @@
 extends ./template/layout
 block content
-  h3
+  <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  h5
   .center
   | Welcome to Medchain
-  <img src="smiley.gif" alt="Smiley face" height="42" width="42">
+  <img src="img/" height="42" width="42">
+  <style>
+	  	body {
+			  background-color: MidnightBlue;
+		  }
+	</style>
+
+  <table class="table borderless" style="background-color: LightSteelBlue; ">
+	  <tbody>
+		<tr>
+	  <td class="login_label text-center "><label><span class="glyphicon glyphicon-lock" ></span></label></td>
+		<td><input ng-model="txtPassword" type="password" placeholder="Password"></td>
+		</tr>  
+    </tbody>
+	</table>
+
+  h5
+  .center
+  | or
+  <img src="img/" height="42" width="42">
+  Fingerprint Access
+
 
 
