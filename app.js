@@ -18,12 +18,31 @@ app.set('view engine', 'pug');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+let requests = require('./routes/requests');
+app.use('/requests', requests);
+
+let dashboard = require('./routes/dashboard');
+app.use('/dashboard', dashboard);
+
+//connect to database using mongoose
+const mongoose = require('mongoose');
+const dbURL = 'mongodb://medical.documents.azure.com:10255/?ssl=true&replicaSet=globaldb';
+mongoose.connect(dbURL, {
+    auth: {
+      user: 'medical',
+      password: 'Qg3c94uvojB2Fa1q2kh1ggo0jm5m2V9H66pYJCT77GfTnnWCJflmNRLSjH6S1RwcBHGdJlUSMBrZZ6jLBIqINQ=='
+    }
+})
+.then(() => console.log(`Successfully connected to ${dbURL}!`))
+.catch((err) => console.error(err));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

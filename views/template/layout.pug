@@ -1,0 +1,16 @@
+doctype html
+include navbar.pug
+mixin css(src)
+  link(rel='stylesheet' href='/css/'+src)
+mixin js(src)
+  script(src='/js/'+src)
+html(lang='en')
+  head
+    title= title
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    +css('bootstrap.min.css')
+    
+  body
+    +header
+    block content
+    +js('bootstrap.min.js')
