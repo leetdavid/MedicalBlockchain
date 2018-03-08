@@ -19,8 +19,12 @@ let RequestSchema = new Schema({
     index: true
   },
   timestamp: {
-    type: String,
+    type: Date,
     index: true,
     default: Date.now
   }
 });
+
+let Request = mongoose.model('Request', RequestSchema, 'Request');
+
+module.exports = Request;
