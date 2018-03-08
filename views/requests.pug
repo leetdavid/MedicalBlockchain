@@ -1,3 +1,30 @@
 extends ./template/layout
 block content
-  h3 Requests content here
+  .container
+    br
+    .container
+      .row
+        .col
+          h3 Request History
+        .col
+          a.btn.btn-default.float-right(href='/requests/new' role="button") New Entry...
+    br
+    table.table
+      thead
+        tr
+          th(scope='col') Source
+          //request date
+          th(scope='col') Requested
+          th(scope='col') Status
+          th(scope='col') Completed
+          th(scope='col') City
+          th(scope='col') Country
+      tbody
+        each request in requests
+          tr
+            td: a(href=sourceURL)= request.sourceName
+            td= request.requestdate
+            td= request.status
+            td= request.transactiondate
+            td= request.city
+            td= request.country
