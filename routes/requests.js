@@ -8,6 +8,8 @@ router.get('/', (req, res, next) => {
   RequestHistory.find({}, (err, requesthistory) => {
     res.render('requests', { title: 'Medichain - Request History', requests: requesthistory});
   });
+
+  //...
 });
 
 router.get('/new', (req, res, next) => {
