@@ -28,6 +28,9 @@ app.use('/users', users);
 let requests = require('./routes/requests');
 app.use('/requests', requests);
 
+let dashboard = require('./routes/dashboard');
+app.use('/dashboard', dashboard);
+
 //connect to database using mongoose
 const mongoose = require('mongoose');
 const dbURL = 'mongodb://medical.documents.azure.com:10255/?ssl=true&replicaSet=globaldb';
