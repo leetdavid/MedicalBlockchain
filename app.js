@@ -35,6 +35,9 @@ app.use('/requests', requests);
 let dashboard = require('./routes/dashboard');
 app.use('/dashboard', dashboard);
 
+let patient = require('./routes/patient');
+app.use('/patient', patient);
+
 let phonesim = require('./routes/phonesim');
 app.use('/phonesim', phonesim);
 
